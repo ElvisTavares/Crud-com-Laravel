@@ -26,7 +26,7 @@
 
             <td>
                 <input type="button" value="Deletar" class="btn btn-danger">
-                <input type="button" value="Editar" class="btn btn-success">
+               <a href="{{ url('/edit_carro', $carro->id) }}" class="btn btn-success">Editar</a>
             </td>
             </tr>
             @endforeach

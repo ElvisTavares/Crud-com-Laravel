@@ -36,11 +36,11 @@ class CarroController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+         dd($request->all());
 
-        $dados = $request->all();
-        Carro::create($dados);
-        return back()->with(['success'=> 'Cliente cadastrado com sucesso!']);
+        // $dados = $request->all();
+        // Carro::create($dados);
+        // return back()->with(['success'=> 'Carro cadastrado com sucesso!']);
     }
 
     /**
@@ -62,7 +62,8 @@ class CarroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $carro = Carro::findOrFail($id);
+        return view('edit', compact('carro'));
     }
 
     /**
@@ -74,7 +75,13 @@ class CarroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    //    dd($request);
+            $carro = $request->all();
+            $id = Carro::findOrFail($id);
+            $id->update($carro);
+
+            return back()->with(['success'=> 'Carro editado com sucesso!']);
+
     }
 
     /**
