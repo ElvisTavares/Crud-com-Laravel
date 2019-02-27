@@ -18,14 +18,18 @@
         </thead>
 
         <tbody>
-            <td>Fiat uno</td>
-            <td>Fiat</td>
-            <td>12400</td>
+        @foreach($carros as $carro)
+        <tr>
+            <td>{{ $carro->modelo }}</td>
+            <td>{{ $carro->marca }}</td>
+            <td>{{ $carro->preco }}</td>
 
             <td>
                 <input type="button" value="Deletar" class="btn btn-danger">
                 <input type="button" value="Editar" class="btn btn-success">
             </td>
+            </tr>
+            @endforeach
         </tbody>  
     </table>
 
