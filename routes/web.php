@@ -20,3 +20,4 @@ Route::get('/cadastro_carro','CarroController@create');
 Route::post('/cadastro_carro','CarroController@store');
 Route::get('/edit_carro/{id}', 'CarroController@edit');
 Route::put('/edit_carro/{id}', 'CarroController@update');
+Route::delete('/delete_carro/{id}','CarroController@destroy');

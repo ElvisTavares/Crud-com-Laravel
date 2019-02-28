@@ -6,8 +6,16 @@
 </head>
 <body>
 <div class="container _content">
+
+    @if(session('success'))
+        <p class="alert-success">
+            {{ session('success')}}
+        </p>
+    @endif
+
     <h2>Sistema de cadastro de carros</h2>
     <div> <a href="{{ url('/cadastro_carro') }}" class="btn btn-primary">Cadastrar Carro</a></div>
+    <br>
     <table class="table">
     <thead>
         <tr>
@@ -25,8 +33,13 @@
             <td>{{ $carro->preco }}</td>
 
             <td>
-                <input type="button" value="Deletar" class="btn btn-danger">
-               <a href="{{ url('/edit_carro', $carro->id) }}" class="btn btn-success">Editar</a>
+                <form action="{{ url('/delete_carro', $carro->id) }} " method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Deletar" class="btn btn-danger">
+
+                    <a href="{{ url('/edit_carro', $carro->id) }}" class="btn btn-success">Editar</a>
+               </form>
             </td>
             </tr>
             @endforeach

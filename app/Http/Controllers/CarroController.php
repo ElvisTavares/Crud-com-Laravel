@@ -92,6 +92,9 @@ class CarroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carro_delete = Carro::findOrFail($id);
+        $carro_delete->delete($id);
+
+        return back()->with(['success' => 'Cliente deletado com sucesso']);
     }
 }
