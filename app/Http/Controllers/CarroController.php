@@ -36,11 +36,11 @@ class CarroController extends Controller
      */
     public function store(Request $request)
     {
-         dd($request->all());
+        //  dd($request->all());
 
-        // $dados = $request->all();
-        // Carro::create($dados);
-        // return back()->with(['success'=> 'Carro cadastrado com sucesso!']);
+        $dados = $request->all();
+        Carro::create($dados);
+        return back()->with(['success'=> 'Carro cadastrado com sucesso!']);
     }
 
     /**
